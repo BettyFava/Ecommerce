@@ -7,13 +7,13 @@ import com.java.ecommerce.model.Produit;
 public interface ProduitMapper {
 	public void insertProduit(Produit produit);
 
-	public Produit getProduitById(Integer idProduit);
+	public Produit getProduitById(Integer id);
 
 	public List<Produit> getAllProduits();
 
 	public void updateProduit(Produit produit);
 
-	public void deleteProduit(Integer idProduit);
+	public void deleteProduit(Integer id);
 
 	public int getHighProduitId();
 }

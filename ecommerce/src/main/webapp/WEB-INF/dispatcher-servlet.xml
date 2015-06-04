@@ -16,61 +16,12 @@
  	<context:annotation-config />  
 	<context:component-scan base-package="com.java.ecommerce"/>
 	
-	
- 
- 	
-  <!-- the application context definition for the springapp DispatcherServlet
- 
- 
- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
- 
-  <bean name="/index.jsp" class="com.java.ecommerce.controller.IndexController">
-  <property name="validator">
-			<bean class="com.java.eccomerce.traitement.LoginValidator">
-				<property name="userManager" ref="userManager" />
-			</bean>
-		</property>
-  </bean>
-  <bean name="/rechercheproduit.jsp" class="com.java.ecommerce.controller.RechercheProduitController"/>
-  <bean name="/detailproduit.jsp" class="com.java.ecommerce.controller.DetailProduitController"/>
-  <bean name="/panier.jsp" class="com.java.ecommerce.controller.PanierController"/>  -->
     
  	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/views/"></property>
     <property name="suffix" value=".jsp"></property>
 	</bean> 
-
-<!-- 
-	<bean id="ClientService" class="com.java.ecommerce.service.ClientServiceImpl">
-  	<property name="clientMapper" ref="clientMapper" />
-	</bean>
- -->
-
 	
-			
-			<!--  
-			<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-			  <property name="dataSource" ref="dataSource" />
-			 
-			</bean>
-			
-			<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-			  <property name="basePackage" value="com.java.ecommerce.mappers" />
-			</bean>
-			
-			<bean id="ClientService" class="com.java.ecommeerce.service.ClientService">
-			  <property name="clientMapper" ref="clientMapper" />
-			</bean>
-			
-			<bean id="ClientMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-			  <property name="mapperInterface" value="com.java.ecommerce.mappers.ClientMapper" />
-			  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-			</bean>
-			
-			<bean id="ClientMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-			  <property name="mapperInterface" value="com.java.ecommerce.mappers" />
-			  <property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
-			</bean> -->
 		<mvc:resources mapping="/resources/**" location="/resources/" /> 
 
 		
@@ -80,17 +31,15 @@
 
 <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-    <property name="url" value="jdbc:mysql://cloud.mylittlestorage.fr:3306/ecommerce" />
-    <property name="username" value="epsi" />
-    <property name="password" value="epsi" />
+    <property name="url" value="jdbc:mysql://92.222.39.26:3306/informatique" />
+    <property name="username" value="informatique" />
+    <property name="password" value="scVPuwu8HrTaxtGs" />
 </bean>
 		     
 		    <!-- Declare a transaction manager -->
 		    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
 		    	<property name="dataSource" ref="dataSource" /> 
 		    </bean>
-		
-		    <!-- STEP 2 SqlSessionFactory-->
 		    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		        <property name="dataSource" ref="dataSource" />
 		        <property name="typeAliasesPackage" value="com.java.ecommerce.model"/>
@@ -101,15 +50,6 @@
 			<constructor-arg index="0" ref="sqlSessionFactory" />
 			</bean>
 			
-			
-			  
-		  <!--   STEP 3 This interface is added to Spring 
-		    <bean id="clientMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
- 		 <property name="mapperInterface" value="com.java.ecommerce.mappers.ClientMapper" />
- 		 <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-		</bean>-->
-		 
-		    <!-- scan for mappers and let them be autowired -->
 		    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		        <property name="basePackage" value="com.java.ecommerce.mappers" />
 		    </bean>
@@ -119,8 +59,7 @@
                 <property name="basename" value="/WEB-INF/messages" />
                 <property name="cacheSeconds" value="3000" />
         </bean>
-		<!-- <bean id="clientService" class="com.java.ecommerce.service.ClientServiceImpl"/>
-		<bean id="Client" class="com.java.ecommerce.service.model.Client"/> -->
+	
 		</beans>
 
 

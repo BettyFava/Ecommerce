@@ -1,104 +1,153 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page language="java" contentType="text/html"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recherche d'un produit</title>
+	<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" charset="utf8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script type="text/javascript" charset="utf8" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   	
+	
+</head>
+<body>
+
+	
+	<div class="container">
+
+		<nav class="navbar navbar-inverse">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#"> Bienvenue, Utilisateur! </a></li>
+			<li><a href="logout">Déconnexion</a></li>
+			<li><a href="utilisateurs">Liste des Utilisateurs </a></li>
+
+		</ul>
+
+		<form class="navbar-form pull-right">
+			<input type="text" style="width: 150px" class="input-small"
+				placeholder="Recherche">
+			<button type="submit" class="btn btn-primary btn-xs" id="flip">
+				<span class="glyphicon glyphicon-eye-open"></span> Chercher
+			</button>
+		</form>
+		</nav>
 
 
-
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
-<html xmlns="http://www.w3c.org/1999/xhtml" 
-	xmlns:jsp="http://java.sun.com/JSP/Page" 
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
-    
-    <head>
-    	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Identification</title>
-      <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" >
-      <link href="${pageContext.request.contextPath}/resources/css/Style.css" rel="stylesheet" >
-         <script type='text/javascript'>
-   function divaffiche(){ 
-	document.getElementById("demandepwd").style.display = "block"; 
-   	document.getElementById("pwdforgotten").style.display = "none"; 
-   	 
-   	} 
-   
-   function divhidden(){ 
-		document.getElementById("demandepwd").style.display = "none"; 
-		document.getElementById("pwdforgotten").style.display = "none"; 
-	   	 
-	   	} 
-  
-  </script>
-    </head>
-    
-   <body>
-   
-   
-
-	<div class="container-fluid">
-		<div class="main">
-			<div class="form-2" style="text-align:center">
-				<fieldset>
-				<legend>Connexion E-commerce </legend>
-				
-				<form:form class="form-horizontal" method="post" action="login" name="identification" id="identification" commandName="identification">
-				<form:errors path="*" cssStyle="color : red;"/>
-					<div class="control-group">
-						<label class="control-label"> Utilisateur </label>
-						<div class="controls">
-							<form:input type="text" name="utilisateur" path="utilisateur" title="Utilisateur" value=""/>
-							
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label"> Mot de Passe </label>
-						<div class="controls">
-							<form:input type="password" name="password" path="password" title="Password" value=""/>
-							
-						</div>
-					</div>
-				<br />
-					<div class="form-actions">
-						<button type="submit" name = "btn btn-success" class="btn btn-success"> Se connecter </button>
-						<button type="button" id="pwdforgotten" class="btn btn-info" onClick="divaffiche()" > Mot de passe oubliÃ© </button>
-					</div>
-				</form:form>	
-				</fieldset>
-			
-				
-			 <br />
-			 <br />
-			 
-				
-				<div id="demandepwd" class="bg-warning" style="display:none;">
-				
-					<form class="form-horizontal"  name="resetPasswordForm" id="resetPasswordForm">
-						<div class="control-group">
-							<label class="control-label"> Login </label>
-								<div class="controls">
-									<span class="help-block">Renseignez votre login afin d'afficher le mot de passe </span>
-								</div>
-						</div>
-			
-				<br />
-						<div class="form-actions">
-							<button type="submit" class="btn btn-warning" onclick="divhidden()" action="display"> Retour </button>
-						<br />
-						</div>
-					
-					</form>
-					
+		<div class="container">
+			<div class="col-md-12">
+				<div class="center-block text-center">
+					<h1>Ensemble des produits </h1>
+					<p class="lead">EPSI - Lille </p>
 				</div>
-				
-				
-				
-				
+				<div class="container"">
+
+					<div id="panel">
+						<div class="col-sm-6">
+							<a href="#"><img class="img-responsive"
+								src="${pageContext.request.contextPath}/resources/img/epsi.png"
+								height="450" width="180"><i
+								class="btn btn-product fa fa-star"></i></a>
+							<hr>
+							<h2>Objectifs</h2>
+							<p>Ce site permet la gestion des commandes au sein d'une organisation </p>
+							<hr>
+							<hr>
+
+
+						</div>
+						<div class="col-sm-6">
+							<div class="productsrow">
+								<div class="product menu-category">
+									<div class="menu-category-name list-group-item active"> Une application souple, légère pour la gestion des commandes</div>
+									<div class="product-image">
+										<img class="product-image"
+											src="${pageContext.request.contextPath}/resources/img/ecommerce.jpg"
+											height="180" width="540">
+									</div>
+
+								</div>
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/row-->
 			</div>
+
+			<!--/container-->
 		</div>
-	</div>		
+
+		<div class=resultsearch>
+			<form action="detail" method="GET">
+			<div class="form-actions">
+						<button class="btn btn-success"> <a href="new" style="color: #FFFFFF;">  Nouveau </a> </button>
+					
+					</div>
+					
+					<br />
+					<br />
+				<table class="table table-striped table-bordered" width="100%" cellspacing="0" >
+
+					<thead>
+
+						<tr>
+							
+							
+							<th width="9%">Produit - ID</th>
+							<th width="25%">Nom</th>
+							<th width="11%">Prix</th>
+                        
+                            <th width="20%"></th>
+                            
+							
+
+
+						</tr>
+
+					</thead>
+					<c:forEach var="p" items="${produits}">
+
+						<tbody>
+
+							<tr>
+
+
+								<td><c:out value="${p.id}"></c:out></td>
+								<td><c:out value="${p.nom}"></c:out></td>
+                                <td><c:out value="${p.prix}"></c:out></td>
+                                <td><button class="btn btn-info btn-sm">
+									<%-- <a href="<c:url value="detail/${p.idProduit}"/>" style="color: #FFFFFF"> --%>
+										<a href="detail?id=${p.id}" style="color: #FFFFFF;"> 
+										 <span class="glyphicon glyphicon-pencil"> </span> Update </a>
+									</button>
+								
+								
+									<button class="btn btn-danger btn-sm">
+									<a href="delete?id=${p.id}" style="color: #FFFFFF">
+										<span class="glyphicon glyphicon-remove"> </span>
+										Delete </a>
+									</button></td>
+
+							</tr>
+
+
+						</tbody>
+					</c:forEach>
+				</table>
+				
+			</form>
+		</div>
+	</div>
+
+
+
+
 </body>
 </html>

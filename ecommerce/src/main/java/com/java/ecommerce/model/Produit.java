@@ -1,55 +1,48 @@
 package com.java.ecommerce.model;
 
 public class Produit {
-	private Integer idProduit;
-	private String nomProduit;
-	private double prixUnitaireProduit;
-	private String descriptionProduit;
-	private String shortDescriptionProduit;
+	private Integer id;
+	private String nom;
+	private float prix;
+	private String description;
 
 	public String toString() {
-		return "Produit[ nomProduit = " + nomProduit + ", idProduit = " + idProduit + ", prixUnitaireProduit = " + prixUnitaireProduit
-				+ ", descriptionProduit = " + descriptionProduit + ", shortDescriptionProduit=" + shortDescriptionProduit + " ]";
+		return "Produit[ nomProduit = " + nom + ", idProduit = " + id + ", prixUnitaireProduit = " + prix
+				+ ", descriptionProduit = " + description + " ]";
 	}
 
-	public Integer getIdProduit() {
-		return idProduit;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdProduit(Integer idProduit) {
-		this.idProduit = idProduit;
+	public void setId(Integer idProduit) {
+		this.id = idProduit;
 	}
 
-	public String getNomProduit() {
-		return nomProduit;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setNomProduit(String nomProduit) {
-		this.nomProduit = nomProduit;
+	public void setNom(String nomProduit) {
+		this.nom = nomProduit;
 	}
 
-	public double getPrixUnitaireProduit() {
-		return prixUnitaireProduit;
+	public double getPrix() {
+		return prix;
 	}
 
-	public void setPrixUnitaireProduit(double prixUnitaireProduit) {
-		this.prixUnitaireProduit = prixUnitaireProduit;
+	public void setPrix(float prixUnitaireProduit) {
+		this.prix = prixUnitaireProduit;
 	}
 
-	public String getDescriptionProduit() {
-		return descriptionProduit;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescriptionProduit(String descriptionProduit) {
-		this.descriptionProduit = descriptionProduit;
+	public void setDescription(String descriptionProduit) {
+		this.description = descriptionProduit;
 	}
 
-	public String getShortDescriptionProduit() {
-		return shortDescriptionProduit;
-	}
 
-	public void setShortDescriptionProduit(String shortDescriptionProduit) {
-		this.shortDescriptionProduit = shortDescriptionProduit;
-	}
 
 }
