@@ -124,13 +124,13 @@
                                 <td><c:out value="${p.prix}"></c:out></td>
                                 <td><button class="btn btn-info btn-sm">
 									<%-- <a href="<c:url value="detail/${p.idProduit}"/>" style="color: #FFFFFF"> --%>
-										<a href="detail?id=${p.id}" style="color: #FFFFFF;"> 
+										<a href="detail/${p.id}" style="color: #FFFFFF;"> 
 										 <span class="glyphicon glyphicon-pencil"> </span> Update </a>
 									</button>
 								
 								
 									<button class="btn btn-danger btn-sm">
-									<a href="delete?id=${p.id}" style="color: #FFFFFF">
+									<a href="delete/${p.id}" style="color: #FFFFFF">
 										<span class="glyphicon glyphicon-remove"> </span>
 										Delete </a>
 									</button></td>
