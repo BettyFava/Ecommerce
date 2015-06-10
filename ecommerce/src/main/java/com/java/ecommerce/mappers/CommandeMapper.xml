@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.java.ecommerce.mappers.CommandeMapper">
+  
+ <resultMap id="Commande_ResultMap" type="com.java.ecommerce.model.Commande">
+		<id property="id" column="idCommande" />
+		<result property="date" column="dateCommande" />
+		<result property="etat" column="etatCommande" />
+		<result property="email_client" column="emailClient" />
+		<result property="login_anonyme" column="loginAnonyme" />
+</resultMap>
+		
+	<select id="getAllCommandes" resultMap="Commande_ResultMap">
+
+  	</select>
+  	
+  	<select id="getCommandesByClient" resultMap="Commande_ResultMap">
+
+  	</select>
+  	
+  	<insert id="insertCommande">
+
+  	</insert>
+	
+	<delete id="deleteCommande" parameterType="int">
+    
+  	</delete>
+	
+</mapper>
