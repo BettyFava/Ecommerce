@@ -16,21 +16,17 @@ public class ProduitServiceImp implements ProduitService {
 
 	@Override
 	public void insertProduit(Produit produit) {
-		// TODO Auto-generated method stub
-
 		produitMapper.insertProduit(produit);
 
 	}
 
 	@Override
 	public Produit getProduitById(Integer idProduit) {
-		// TODO Auto-generated method stub
 		return produitMapper.getProduitById(idProduit);
 	}
 
 	@Override
 	public List<Produit> getAllProduits() {
-		// TODO Auto-generated method stub
 		return produitMapper.getAllProduits();
 	}
 
@@ -42,14 +38,12 @@ public class ProduitServiceImp implements ProduitService {
 
 	@Override
 	public void deleteProduit(Integer idProduit) {
-		// TODO Auto-generated method stub
 		produitMapper.deleteProduit(idProduit);
 
 	}
 
 	@Override
 	public int getHighProduitId() {
-		// TODO Auto-generated method stub
 		return produitMapper.getHighProduitId();
 	}
 
