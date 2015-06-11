@@ -12,9 +12,6 @@
 		<result property="login_anonyme" column="loginAnonyme" />
 </resultMap>
 		
-	<select id="getAllCommandes" resultMap="Commande_ResultMap">
-
-  	</select>
   	
   	<select id="getCommandesByClient" resultMap="Commande_ResultMap">
 
@@ -24,8 +21,6 @@
 
   	</insert>
 	
-	<delete id="deleteCommande" parameterType="int">
-    
-  	</delete>
+
 	
 </mapper>

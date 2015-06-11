@@ -27,15 +27,15 @@ public class IndexController {
 		return mav;
 	}
 	
-	//permet la suppression d'un produit
-	//POUR LE MOMENT PBM SQL MAIS CELA VEUT DIRE QUE CA MARCHE !
-	@RequestMapping(value = "/delete/{id}")
-	public ModelAndView supprimerPost(@PathVariable("id") final Integer id) {
-		ModelAndView mav = new ModelAndView("redirect:/");
-		this.produitMapper.deleteProduit(id);
-		return mav;
-
-	}
+//	//permet la suppression d'un produit
+//	//POUR LE MOMENT PBM SQL MAIS CELA VEUT DIRE QUE CA MARCHE !
+//	@RequestMapping(value = "/delete/{id}")
+//	public ModelAndView supprimerPost(@PathVariable("id") final Integer id) {
+//		ModelAndView mav = new ModelAndView("redirect:/");
+//		this.produitMapper.deleteProduit(id);
+//		return mav;
+//
+//	}
 
 	
 

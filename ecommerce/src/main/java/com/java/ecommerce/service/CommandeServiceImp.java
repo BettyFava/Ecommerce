@@ -20,19 +20,12 @@ public class CommandeServiceImp implements CommandeService {
 	}
 
 	@Override
-	public List<Commande> getAllCommandes() {
-		return commandeMapper.getAllCommandes();
-	}
-
-	@Override
 	public List<Commande> getCommandesByClient(String emailClient) {
 		return commandeMapper.getCommandesByClient(emailClient);
 	}
 
-	@Override
-	public void deleteCommande(Integer idCommande) {
-		commandeMapper.deleteCommande(idCommande);
-	}
+	
+
 
 
 }

@@ -4,16 +4,20 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 import java.util.List;
-import javax.inject.Inject;
+
+
+
+import junit.framework.TestCase;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.java.ecommerce.model.Commande;
 import com.java.ecommerce.service.CommandeService;
 
-public class CommandeServiceTest {
+public class CommandeServiceTest extends TestCase {
 
-	@Inject
+	@Autowired
 	private CommandeService commandeService;
 	
 	@Test

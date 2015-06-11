@@ -8,12 +8,12 @@ public interface ProduitMapper {
 	public void insertProduit(Produit produit);
 
 	public Produit getProduitById(Integer id);
+	
+	public Produit getInformationsSuppProduit(Integer id);
 
 	public List<Produit> getAllProduits();
+	
+	public List<Produit> getProduitsParCategories();
 
 	public void updateProduit(Produit produit);
-
-	public void deleteProduit(Integer id);
-
-	public int getHighProduitId();
 }

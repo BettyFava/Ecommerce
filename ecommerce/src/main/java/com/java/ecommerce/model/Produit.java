@@ -5,6 +5,10 @@ public class Produit {
 	private String nom;
 	private float prix;
 	private String description;
+	private String dimensions;
+	private String poids;
+	private Integer stock;
+	private SousCategorie sousCategories;
 
 	public String toString() {
 		return "Produit[ nomProduit = " + nom + ", idProduit = " + id + ", prixUnitaireProduit = " + prix
@@ -17,6 +21,30 @@ public class Produit {
 
 	public void setId(Integer idProduit) {
 		this.id = idProduit;
+	}
+
+	public String getDimensions() {
+		return dimensions;
+	}
+
+	public void setDimensions(String dimensions) {
+		this.dimensions = dimensions;
+	}
+
+	public String getPoids() {
+		return poids;
+	}
+
+	public void setPoids(String poids) {
+		this.poids = poids;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
 	}
 
 	public String getNom() {
@@ -41,6 +69,14 @@ public class Produit {
 
 	public void setDescription(String descriptionProduit) {
 		this.description = descriptionProduit;
+	}
+
+	public SousCategorie getSousCategories() {
+		return sousCategories;
+	}
+
+	public void setSousCategories(SousCategorie sousCategories) {
+		this.sousCategories = sousCategories;
 	}
 
 

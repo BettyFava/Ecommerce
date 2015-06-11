@@ -30,21 +30,6 @@ public class ProduitServiceImp implements ProduitService {
 		return produitMapper.getAllProduits();
 	}
 
-	@Override
-	public void updateProduit(Produit produit) {
-		produitMapper.updateProduit(produit);
 
-	}
-
-	@Override
-	public void deleteProduit(Integer idProduit) {
-		produitMapper.deleteProduit(idProduit);
-
-	}
-
-	@Override
-	public int getHighProduitId() {
-		return produitMapper.getHighProduitId();
-	}
 
 }

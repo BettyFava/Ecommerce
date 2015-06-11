@@ -12,10 +12,4 @@ public interface ProduitService {
 
 	public List<Produit> getAllProduits();
 
-	public void updateProduit(Produit produit);
-
-	public void deleteProduit(Integer idProduit);
-
-	public int getHighProduitId();
-
 }
