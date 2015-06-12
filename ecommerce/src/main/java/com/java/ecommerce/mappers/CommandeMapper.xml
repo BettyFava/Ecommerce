@@ -14,11 +14,15 @@
 		
   	
   	<select id="getCommandesByClient" resultMap="Commande_ResultMap">
-
+		SELECT  idCommande, dateCommande,  etatCommande, emailClient, loginAnonyme
+		FROM  Commande 
+		WHERE emailClient =  #{email_client}
   	</select>
   	
   	<insert id="insertCommande">
-
+		INSERT INTO Commande(dateCommande, etatCommande, emailClient, loginAnonyme)
+		VALUES
+			(#{date}, #{etat}, #{email_client}, #{login_anonyme})
   	</insert>
 	
 

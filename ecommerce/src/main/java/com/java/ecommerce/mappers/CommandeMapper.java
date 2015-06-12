@@ -8,9 +8,6 @@ public interface CommandeMapper {
 
 	public void insertCommande(Commande commande);
 	
-	
 	public List<Commande> getCommandesByClient(String emailClient);
-	
-
 	
 }

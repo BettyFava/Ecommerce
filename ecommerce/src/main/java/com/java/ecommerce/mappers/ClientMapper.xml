@@ -1,1 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.java.ecommerce.mappers.ClientMapper">
+  
+  	<resultMap id="Client_ResultMap" type="com.java.ecommerce.model.Client">
+		<id property="email" column="emailClient" />
+		<result property="password" column="password" />
+		<result property="civilite" column="civiliteClient" />
+		<result property="nom" column="nomClient" />
+		<result property="prenom" column="prenomClient" />
+		<result property="societe" column="societe" />
+		<result property="birthday" column="dateNaissance" />
+		<result property="adresse" column="adresseClient" />
+		<result property="code_postal" column="CPClient" />
+		<result property="ville" column="villeClient" />
+		<result property="number" column="telClient" />
+		<result property="date_connexion" column="dateConnexion" />
+	</resultMap>
+	
+	<insert id="insertClient">
+		INSERT INTO 
+			Client(emailClient, password, civiliteClient, nomClient, prenomClient, societe, dateNaissance, 
+			adresseClient, CPClient, villeClient, telClient, dateConnexion) 
+		VALUES 
+			(#{email}, #{password}, #{civilite}, #{nom}, #{prenom}, #{societe}, #{birthday}, #{adresse}, #{code_postal}, #{ville}, 
+			#{number}, #{date_connexion})
+	</insert>
+	
+    <select id="getClientByEmail" resultMap="Client_ResultMap">
+		SELECT 
+			emailClient, password, civiliteClient, nomClient, prenomClient, societe, dateNaissance, adresseClient, CPClient,
+			villeClient, telClient, dateConnexion
+		FROM Client
+		WHERE emailClient = #{email}
+  	</select>
+	
+</mapper>
