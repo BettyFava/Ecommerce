@@ -50,7 +50,7 @@
 
   <insert id="insertProduit">
    INSERT INTO Produit(idProduit, nomProduit, prixProduit, descriptionProduit)
-    VALUES(#{id}, #{nom}, #{prix}, #{description})
+    VALUES(#{}, #{nom}, #{prix}, #{description})
   </insert>
 
   <update id="updateProduit">
