@@ -49,6 +49,10 @@
    SELECT idProduit, nomProduit, descriptionProduit, prixProduit FROM Produit
   </select>
 
+  <insert id="insertProduit">
+   INSERT INTO Produit(idProduit, nomProduit, prixProduit, descriptionProduit)
+    VALUES(#{}, #{nom}, #{prix}, #{description})
+  </insert>
 
 
 </mapper>

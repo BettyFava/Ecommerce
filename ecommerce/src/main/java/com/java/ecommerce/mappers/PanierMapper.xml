@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.java.ecommerce.mappers.PanierMapper">
+    
+ <resultMap id="Panier_ResultMap" type="com.java.ecommerce.model.Panier">
+		<id property="idPanier" column="{idCommande=idCommande, idProduit=idProduit}" /> 
+		<result property="quantiteProduit" column="quantiteProduit" />
+		<result property="remiseProduit" column="remiseProduit" />
+		<result property="prixVenteUnitaire" column="prixVenteUnitaire" />
+</resultMap>
+
+<resultMap id="Produit_ResultMap" type="com.java.ecommerce.model.Produit">
+		<id property="id" column="idProduit" />
+		<result property="nom" column="nomProduit" />
+		<result property="description" column="descriptionProduit" />
+		<result property="prix" column="prixProduit" />
+		<association property="sousCategorie" column="idSousCategorieProduit" javaType="SousCategorie" select="selectSousCategorie"/>
+</resultMap>
+
+	<!--
+	public void createCart(); ~
+	
+	public Panier getPanierById(Integer id);
+	
+	public List<Produit> getAllProduits(Panier panier);
+	
+	public List<Produit> getAllProduits(Integer IdPanier);
+	
+	public void insertProduit(Produit produit,int quantite);
+	
+	public void removeProduit(int idCommande, int idProduit); ok
+
+	public float calculatePrice(Panier idPanier);
+	-->
+
+	<insert id="createCart" parameterType="com.java.model.Client" >
+     INSERT INTO "Commande" ("dateCommande", "etatCommande", "emailClient", "loginAnonyme") VALUES
+('2015-04-27', 'en cours', #{Client.email}, #{existe pas encore});
+  </insert>
+  
+    <select id="getAllProduits" parameterType="int" resultMap="Prduit_ResultMap">
+     SELECT 
+    	idProduit, nomProduit, descriptionProduit, prixProduit
+     FROM Produit
+     WHERE idProduit = #{Panier.idProduit}
+  </select>
+  
+  
+    <delete id="removeProduit">
+		DELETE FROM CommandeProduit
+		WHERE idCommande = #{Panier.idCommande} AND idProduit = #{Panier.idProduit}
+	</delete>
+  
+  <select id="getAllProduits" resultMap="Produit_ResultMap">
+   SELECT idProduit, nomProduit, descriptionProduit, prixProduit FROM Produit
+  </select>
+
+  <insert id="insertProduit">
+   INSERT INTO CommandeProduit(quantiteProduit, remiseProduit, prixVenteUnitaire, idCommande,idProduit)
+    VALUES(#{quantiteProduit}, #{remiseProduit}, #{prixVenteUnitaire}, #{idCommande}, #{idProduit})
+  </insert>
+
+  <update id="updateProduit">
+    UPDATE Produit 
+    SET
+     descriptionProduit= #{description},
+     nomProduit = #{nom},
+     prixUnitaireProduit = #{prix}
+    WHERE idProduit = #{id}
+  </update>
+
+  <delete id="deleteProduit" parameterType="int">
+    DELETE FROM Produit WHERE idProduit = #{id}
+  </delete>
+</mapper>

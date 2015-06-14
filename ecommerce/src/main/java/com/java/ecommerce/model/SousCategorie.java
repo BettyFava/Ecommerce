@@ -4,6 +4,7 @@ public class SousCategorie {
 	private Integer id;
 	private String libelle;
 	private Categorie categorie;
+	
 	public Integer getId() {
 		return id;
 	}
