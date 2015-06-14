@@ -10,13 +10,14 @@
 		<result property="etat" column="etatCommande" />
 		<result property="email_client" column="emailClient" />
 		<result property="login_anonyme" column="loginAnonyme" />
+		<association property=""></association>
 </resultMap>
 		
   	
-  	<select id="getCommandesByClient" resultMap="Commande_ResultMap">
+  	<select id="getCommandesByClient" parameterType="String" resultMap="Commande_ResultMap">
 		SELECT  idCommande, dateCommande,  etatCommande, emailClient, loginAnonyme
 		FROM  Commande 
-		WHERE emailClient =  #{email_client}
+		WHERE emailClient =  #{emailClient}
   	</select>
   	
   	<insert id="insertCommande">
@@ -25,6 +26,11 @@
 			(#{date}, #{etat}, #{email_client}, #{login_anonyme})
   	</insert>
 	
+	  	<select id="getCommande" parameterType="int" resultMap="Commande_ResultMap">
+		SELECT  idCommande, dateCommande,  etatCommande, emailClient, loginAnonyme
+		FROM  Commande 
+		WHERE emailClient =  #{id}
+  	</select>
 
 	
 </mapper>

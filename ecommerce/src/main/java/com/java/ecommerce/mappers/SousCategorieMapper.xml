@@ -7,8 +7,9 @@
 <resultMap id="SousCategorie_ResultMap" type="com.java.ecommerce.model.SousCategorie">
 		<id property="id" column="idSousCategorieProduit" />
 		<result property="libelle" column="libelle" />
-		
+		<association property="categorie" column="idCategorieProduit" javaType="Categorie" select="getCategorie"/>
 		</resultMap>
+		
 
 		
   <select id="getSousCategorie" parameterType="int" resultMap="SousCategorie_ResultMap">

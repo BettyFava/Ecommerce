@@ -23,7 +23,8 @@ public class IndexController {
 	public ModelAndView accueil() {
 		ModelAndView mav = new ModelAndView("index");
 		List<Produit> produits = this.produitMapper.getAllProduits();
-		mav.addObject("produits", produits);
+		List<Produit> test = this.produitMapper.getProduitsParSousCategories(1);
+ 		mav.addObject("produits", produits);
 		return mav;
 	}
 	
